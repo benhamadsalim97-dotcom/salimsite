@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nouiel - Vente et achat de biens dans le village</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <a href="#accueil" class="logo">🏡 Nouiel</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+        <nav class="nav" id="nav">
+          <a href="#accueil">Accueil</a>
+          <a href="#biens">Biens</a>
+          <a href="#apropos">À propos</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section id="accueil" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>Bienvenue à Nouiel</h1>
+          <p>
+            Un petit village calme et accueillant. Achetez ou vendez une maison,
+            un terrain ou un local commercial en toute confiance.
+          </p>
+          <a href="#biens" class="btn">Voir les biens</a>
+        </div>
+        <img
+          src="images/village.svg"
+          alt="Illustration du village de Nouiel"
+          class="hero-img"
+        />
+      </div>
+    </section>
+
+    <section id="biens" class="section">
+      <div class="container">
+        <h2>Biens à vendre</h2>
+
+        <div class="filters">
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Rechercher un bien..."
+          />
+          <select id="typeFilter">
+            <option value="all">Tous les types</option>
+            <option value="maison">Maisons</option>
+            <option value="terrain">Terrains</option>
+            <option value="commerce">Commerces</option>
+          </select>
+          <select id="sortFilter">
+            <option value="default">Tri par défaut</option>
+            <option value="prix-asc">Prix croissant</option>
+            <option value="prix-desc">Prix décroissant</option>
+            <option value="surface">Surface décroissante</option>
+          </select>
+        </div>
+
+        <p id="resultCount" class="result-count"></p>
+        <div id="listings" class="grid"></div>
+        <p id="noResult" class="no-result" hidden>
+          Aucun bien ne correspond à votre recherche.
+        </p>
+      </div>
+    </section>
+
+    <section id="apropos" class="section alt">
+      <div class="container about">
+        <div>
+          <h2>À propos de Nouiel</h2>
+          <p>
+            Nouiel est un village paisible niché au cœur de la campagne, avec
+            ses écoles, ses commerces de proximité et ses sentiers de randonnée.
+          </p>
+          <p>
+            Notre service facilite la vente et l'achat de biens immobiliers
+            locaux, avec un accompagnement personnalisé.
+          </p>
+        </div>
+        <img src="images/commerce.svg" alt="Commerces de Nouiel" />
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <form id="contactForm" class="contact-form" novalidate>
+          <input type="text" id="nom" name="nom" placeholder="Votre nom" />
+          <span class="error" data-for="nom"></span>
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Votre e-mail"
+          />
+          <span class="error" data-for="email"></span>
+
+          <select id="objet" name="objet">
+            <option value="">Je souhaite...</option>
+            <option value="acheter">Acheter un bien</option>
+            <option value="vendre">Vendre un bien</option>
+            <option value="info">Demander des informations</option>
+          </select>
+          <span class="error" data-for="objet"></span>
+
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Votre message (10 caractères minimum)"
+          ></textarea>
+          <span class="error" data-for="message"></span>
+
+          <button type="submit" class="btn">Envoyer</button>
+          <p id="formSuccess" class="success" hidden>
+            Merci ! Votre message a bien été envoyé.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 Nouiel - Tous droits réservés</p>
+    </footer>
+
+    <!-- Fenêtre de détail -->
+    <div id="modal" class="modal" hidden>
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose" aria-label="Fermer">
+          &times;
+        </button>
+        <img id="modalImg" src="" alt="" />
+        <h3 id="modalTitle"></h3>
+        <p id="modalPrice" class="price"></p>
+        <p id="modalDesc"></p>
+        <ul id="modalDetails"></ul>
+        <a href="#contact" class="btn" id="modalContact"
+          >Contacter le vendeur</a
+        >
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
